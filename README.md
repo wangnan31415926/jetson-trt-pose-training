@@ -88,7 +88,7 @@ unzip annotations_trainval2017.zip
 python3 preprocess_coco_person.py annotations/person_keypoints_train2017.json annotations/person_keypoints_train2017_modified.json
 
 ```
-### Step 11 Create a model / training configuration. Easiest to start from an existing one. 
+### Step 11 Create a model / training configuration. Easiest to start from an existing one. (https://github.com/NVIDIA-AI-IOT/trt_pose/issues/59)
 ```
 cp experiments/resnet18_baseline_att_224x224_A.json experiments/my_model.json
 python3 train.py ../tasks/human_pose/experiments/my_model.json 
