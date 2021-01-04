@@ -20,14 +20,14 @@ How to training the pose new mode
    ```python
    sudo update-initramfs -u
    ```   
-5.最后，重启电脑。若再在终端输入 ```lsmod | grep nouveau```命令无输出，则表示禁用成功.
-6.安装依赖 ```sudo apt-get install build-essential gcc-multilib dkms```
-7.关闭图形界面 
+5. 最后，重启电脑。若再在终端输入 ```lsmod | grep nouveau```命令无输出，则表示禁用成功.
+6. 安装依赖 ```sudo apt-get install build-essential gcc-multilib dkms```
+7. 关闭图形界面 
   ```
   sudo systemctl set-default multi-user.target
   sudo reboot
   ```
-8.进入驱动下载的目录下
+8. 进入驱动下载的目录下
   ```
   cd Downloads
   sudo chmod a+x NVIDIA-Linux-x86_64-460.27.04.run     # 给驱动run文件赋予执行权限，驱动版本号自行修改
@@ -36,19 +36,28 @@ How to training the pose new mode
   注意: -no-x-check：安装驱动时关闭X服务
        -no-nouveau-check：安装驱动时禁用nouveau
        -no-opengl-files：只安装驱动文件，不安装OpenGL文件
-9.重启电脑
+9. 重启电脑
   ```
   sudo systemctl set-default graphical.target
   sudo reboot
   ```
-10.验证安装驱动是否OK
+10. 验证安装驱动是否OK
   ```
       nvidia-smi
       nvidia-settings
   ```
-  
-  
-  
+ ### Step 3  Install Cuda Cudnn
+ 1.cuda(https://www.jianshu.com/p/4e8a4a07cc57?utm_campaign=haruki),()
+   ```
+   wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run
+   sudo sh cuda_11.1.0_455.23.05_linux.run
+   ```
+ 3.cudnn(https://blog.csdn.net/public669/article/details/98470857?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control)
+ 
+ ### Step 4  Install pytorch,torchvision 
+  1.(https://pytorch.org/get-started/locally/)
+ ### Step 5  Install tensorrt 
+ (https://blog.csdn.net/shwan_ma/article/details/103637739/)
   
   
   
