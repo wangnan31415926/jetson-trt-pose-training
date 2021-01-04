@@ -6,11 +6,11 @@ How to training the pose new mode
 ### Step 2 - Install GPU device
 1.you should download the nvidia device [connect](https://www.nvidia.cn/Download/index.aspx?lang=cn),according your GPU model,my device is NVIDIA-Linux-x86_64-460.27.04
 2.remove old device
-    ```python
+
+    ```
     sudo apt-get remove --purge nvidia-* 
     sudo apt-get remove --purge "*nvidia*" 
-    
-    ```
+    ```    
 3.
 
 
