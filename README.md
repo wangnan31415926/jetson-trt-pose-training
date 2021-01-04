@@ -21,3 +21,39 @@ How to training the pose new mode
    sudo update-initramfs -u
    ```   
 5.最后，重启电脑。若再在终端输入 ```lsmod | grep nouveau```命令无输出，则表示禁用成功.
+6.安装依赖 ```sudo apt-get install build-essential gcc-multilib dkms```
+7.关闭图形界面 
+  ```
+  sudo systemctl set-default multi-user.target
+  sudo reboot
+  ```
+8.进入驱动下载的目录下
+  ```
+  cd Downloads
+  sudo chmod a+x NVIDIA-Linux-x86_64-460.27.04.run     # 给驱动run文件赋予执行权限，驱动版本号自行修改
+  sudo ./NVIDIA-Linux-x86_64-384.130.run -no-x-check -no-nouveau-check -no-opengl-files #开始安装驱动
+  ```
+  注意: -no-x-check：安装驱动时关闭X服务
+       -no-nouveau-check：安装驱动时禁用nouveau
+       -no-opengl-files：只安装驱动文件，不安装OpenGL文件
+9.重启电脑
+  ```
+  sudo systemctl set-default graphical.target
+  sudo reboot
+  ```
+10.验证安装驱动是否OK
+  ```
+      nvidia-smi
+      nvidia-settings
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
