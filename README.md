@@ -20,3 +20,4 @@ How to training the pose new mode
    ```python
    sudo update-initramfs -u
    ```   
+5.最后，重启电脑。若再在终端输入 ```lsmod | grep nouveau```命令无输出，则表示禁用成功.
