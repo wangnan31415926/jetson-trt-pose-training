@@ -46,7 +46,7 @@ How to training the pose new mode
       nvidia-smi
       nvidia-settings
   ```
- ### Step 3  Install Cuda Cudnn
+### Step 3  Install Cuda Cudnn
  1.cuda(https://www.jianshu.com/p/4e8a4a07cc57?utm_campaign=haruki),()
    ```
    wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run
@@ -58,10 +58,42 @@ How to training the pose new mode
   1.(https://pytorch.org/get-started/locally/)
  ### Step 5  Install tensorrt 
  (https://blog.csdn.net/shwan_ma/article/details/103637739/)
-  
-  
-  
-  
+ ### Step 6  Install torch2trt
+  ```
+  git clone https://github.com/NVIDIA-AI-IOT/torch2trt
+  cd torch2trt
+  sudo python3 setup.py install --plugins
+  ```
+### Step 7 Install other miscellaneous packages
+   ```
+   sudo pip3 install tqdm cython pycocotools
+   sudo apt-get install python3-matplotlib
+   ```
+### Step 8 Install trt_pose
+   ```
+   git clone https://github.com/NVIDIA-AI-IOT/trt_pose
+   cd trt_pose
+   sudo python3 setup.py install
+   ```
+### Step 9   Download coco
+```
+cd tasks/human_pose
+source download_coco.sh
+unzip train2017.zip
+unzip val2017.zip
+unzip annotations_trainval2017.zip
+```   
+### Step 10 Pre-process the coco annotations. This adds the "Neck" keypoint (midpoint of shoulders).
+```
+python3 preprocess_coco_person.py annotations/person_keypoints_train2017.json annotations/person_keypoints_train2017_modified.json
+
+```
+### Step 11 Create a model / training configuration. Easiest to start from an existing one. 
+```
+cp experiments/resnet18_baseline_att_224x224_A.json experiments/my_model.json
+python3 train.py ../tasks/human_pose/experiments/my_model.json 
+```
+
   
   
   
